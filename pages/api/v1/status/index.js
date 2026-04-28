@@ -16,6 +16,9 @@ async function status(request, response) {
   })
   const openConnections = openConnectionsQuery.rows[0].count
 
+  const debugQuery = await database.query("SELECT current_database(), current_user;");
+  console.log(debugQuery)
+
   response.status(200).json({
     updated_at: updatedAt,
     dependencies: {
