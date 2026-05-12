@@ -10,7 +10,7 @@ async function status(request, response) {
   const maxConnections = maxConnectionsQuery.rows[0].max_connections
   
   const openConnectionsQuery = await database.query(
-    "SELECT count(*) FROM pg_stat_activity WHERE datname = current_database();"
+    "SELECT count(*) FROM pg_stat_activity WHERE datname = current_database(); "
   )
   const openConnections = openConnectionsQuery.rows[0].count
 
